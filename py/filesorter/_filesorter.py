@@ -9,6 +9,14 @@ import shutil
 import sys
 
 
+__all__ = [
+    "DATE_ENUM",
+    "collect_file_info",
+    "organize_files_by_creation_date",
+    "ensure_path"
+]
+
+
 class DATE_ENUM(enum.Enum):
     HOUR = 1
     DAY = 2
@@ -89,8 +97,6 @@ def organize_files_by_creation_date(file_info_dict, sort_by=DATE_ENUM.MONTH):
         raise ValueError("Value for sort_by must be a DATE_ENUM")
 
     for _, file_info in file_info_dict.items():
-        print("file_info: {}".format(file_info))
-        print("type: {}".format(type(file_info)))
         sort_folder_name = _get_file_sort_folder_name(file_info, sort_by)
         sort_folder = os.path.join(file_info.get('filepath'), sort_folder_name)
         ensure_path(sort_folder)
