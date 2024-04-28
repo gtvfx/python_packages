@@ -1,2 +1,3 @@
-# python_packages
-Various python packages I want to keep version controlled
+# Custom Qt Widgets
+
+- Drag and Drop QTreeView
